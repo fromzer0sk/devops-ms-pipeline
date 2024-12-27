@@ -1,9 +1,17 @@
 pipeline {
-	agent {docker {image 'node:lts-jod'}}
+	//agent {docker {image 'node:lts-jod'}}
+	agent any
+	envirionmnet{
+		dockerHome = tool "myDocker"
+		mavenHome = tool "myMaven"
+		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
+	}
 	stages{
 		stage('Build'){
 			steps{
-				 sh 'node --version' 
+				 //sh 'node --version'
+				 sh 'mavn --version'
+				 sh 'docker version' 
 				 echo "Build"
 			}
 		}
