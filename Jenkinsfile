@@ -2,7 +2,7 @@ pipeline {
 	//agent {docker {image 'node:lts-jod'}}
 	agent any
 	environment{
-		dockerHome = tool "myDocker"
+		dockerHome = tool "MyDocker"
 		mavenHome = tool "myMaven"
 		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
 	}
